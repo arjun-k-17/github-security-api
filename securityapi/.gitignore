@@ -1,0 +1,14 @@
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Environment variables
+.env
+
+# IDE files
+.vscode/
+.idea/
+.classpath
+.project
+.settings
+

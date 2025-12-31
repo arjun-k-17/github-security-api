@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cyber Security Dashboard</title>
+</head>
+<body>
+<h2>Cyber Security Dashboard</h2>
+
+<p id="status">Loading...</p>
+
+<button onclick="getStatus()">Check Firewall Status</button>
+<button onclick="updateStatus('ACTIVE')">Activate Firewall</button>
+<button onclick="updateStatus('INACTIVE')">Deactivate Firewall</button>
+
+<script>
+function getStatus() {
+    fetch('/firewall')
+        .then(res => res.text())
+        .then(data => document.getElementById('status').innerText = data);
+}
+
+function updateStatus(status) {
+    fetch('/firewall/update/' + status)
+        .then(res => res.text())
+        .then(data => document.getElementById('status').innerText = data);
+}
+</script>
+
+<br><br>
+<a href="/logout">Logout</a>
+</body>
+</html>
+
